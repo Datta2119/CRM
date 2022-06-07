@@ -4,9 +4,8 @@
 
 {% block content %}
 
-<div class="container-fluid">
-    {% include 'accounts/status.html' %}
-</div> 
+{% include 'accounts/status.html' %}
+
 
 <br>
 
@@ -52,13 +51,13 @@
                     <th>Remove</th>
                 </tr>
 
-                {% for product in products %}
+                {% for order in orders %}
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{order.product}}</td>
+                    <td>{{order.date_created}}</td>
+                    <td>{{order.status}}</td>
+                    <td> <a href="" style="text-decoration: none;">Update</a> </td>
+                    <td> <a href="" style="text-decoration: none;">Remove</a> </td>
                 </tr>
                 {% endfor %}
             </table>

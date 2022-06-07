@@ -1,3 +1,4 @@
+from telnetlib import STATUS
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import *
@@ -6,7 +7,20 @@ from .models import *
 def home(request):
     orders = Order.objects.all()
     customers = Customer.objects.all()
-    contxt = {'orders': orders, 'customers': customers,}
+
+    total_customers = customers.count()
+    
+    total_orders = orders.count()
+    delivered = orders.filter(status = 'Delivered').count()
+    pending = orders.filter(status = 'Pending').count()
+
+    contxt = {
+        'orders': orders, 
+        'customers': customers, 
+        'total_orders': total_orders, 
+        'delivered': delivered, 
+        'pending': pending,
+        }
 
     return render(request, 'accounts/dashboard.html', contxt)
 
