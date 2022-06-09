@@ -8,14 +8,14 @@ body{
     background-color: #4cb4c7;
 }
 
-#orders-delivered{
-    background-color: #7abecc;
-}
-
 #orders-pending{
     background-color: #7cd1c0;
 }
 
-a{
-    text-decoration: none;
+#out-of-delivery{
+    background-color: #31cf93;
+}
+
+#orders-delivered{
+    background-color: #7abecc;
 }
